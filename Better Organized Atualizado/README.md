@@ -1,8 +1,15 @@
-# BetterOrganized
+# BetterOrganized — Versão Atualizada
 
 ## Sistema de gestão de computadores em laboratórios
 
 O **BetterOrganized** é a versão atualizada de um sistema de gestão para laboratórios de informática. A aplicação permite acompanhar computadores, baias, componentes de hardware, ocorrências técnicas e histórico de atendimento em uma interface web com perfis de **Professor** e **Suporte**.
+
+> **Sobre este diretório:** esta versão faz parte do repositório [`Tcc-ensino-medio`](https://github.com/SamuelDlv/Tcc-ensino-medio). Ela não é um repositório Git independente. Para obter o projeto, clone o repositório principal e entre nesta pasta.
+
+```bash
+git clone https://github.com/SamuelDlv/Tcc-ensino-medio.git
+cd "Tcc-ensino-medio/Better Organized Atualizado"
+```
 
 O projeto foi organizado para ser executado em PHP com MySQL ou MariaDB, sem dependências externas obrigatórias e sem frameworks de aplicação. O PDF dos relatórios é gerado internamente pela classe `SimplePdf`.
 
@@ -28,11 +35,14 @@ O laboratório é apresentado com uma visualização responsiva. Os computadores
 
 ### 1. Obter o projeto
 
+Se você ainda não clonou o repositório principal:
+
 ```bash
-git clone https://github.com/SamuelDlv/BetterOrganized.git
-cd BetterOrganized
+git clone https://github.com/SamuelDlv/Tcc-ensino-medio.git
+cd "Tcc-ensino-medio/Better Organized Atualizado"
 ```
 
+Se você já estiver dentro da pasta `Better Organized Atualizado`, continue a partir da próxima etapa.
 
 ### 2. Criar o banco
 
@@ -74,7 +84,7 @@ O PHP utilizado no desenvolvimento local aceita os valores padrão definidos em 
 
 ### 4. Iniciar o servidor de desenvolvimento
 
-A partir da raiz do projeto:
+A partir desta pasta:
 
 ```bash
 php -S 127.0.0.1:8000 -t public
@@ -98,9 +108,9 @@ Essas credenciais são previsíveis e **não devem ser usadas em produção**. A
 ## Estrutura do projeto
 
 ```text
-BetterOrganized/
+Better Organized Atualizado/
 ├── config/
-│   ├── database.php       # conexão segura por variáveis de ambiente
+│   ├── database.php       # conexão por variáveis de ambiente
 │   ├── helpers.php        # regras compartilhadas do sistema
 │   └── SimplePdf.php      # gerador interno de PDF
 ├── database/
