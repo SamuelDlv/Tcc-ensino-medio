@@ -1,0 +1,83 @@
+.page-head {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.page-head h1 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+}
+
+.page-head p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin: 0;
+}
+
+.lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.lab-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.15s var(--ease), border-color 0.15s var(--ease);
+}
+
+.lab-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-med);
+}
+
+.lab-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+}
+
+.lab-card-head h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+    min-width: 0;
+}
+
+.lab-card p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.lab-card .btn {
+    margin-top: auto;
+}
+
+.lab-error {
+    grid-column: 1 / -1;
+    background: var(--status-error-bg);
+    color: var(--status-error);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .lab-grid {
+        grid-template-columns: 1fr;
+    }
+    .lab-card {
+        padding: 18px;
+    }
+}

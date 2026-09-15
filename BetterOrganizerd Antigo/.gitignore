@@ -1,0 +1,28 @@
+# Segredos e configuração local
+.env
+.env.*
+!.env.example
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.cache
+
+# Dependências e artefatos locais
+vendor/
+node_modules/
+
+# Dumps locais de banco de dados
+*.sql.gz
+*.dump
+
+# Uploads e arquivos gerados
+uploads/
+storage/

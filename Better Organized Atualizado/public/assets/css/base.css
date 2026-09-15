@@ -1,0 +1,352 @@
+/* =========================================================================
+   BetterOrganized — Design system base
+   Tokens compartilhados por todas as telas do painel (professor/suporte).
+   Paleta: azul-petróleo profundo (identidade original do projeto) +
+   um único acento ciano, e o trio semântico verde/amarelo/vermelho para
+   status de estação de trabalho.
+   ========================================================================= */
+
+:root {
+  /* Superfícies */
+  --bg-deep:      #0B2038;
+  --bg-base:      #0F2A47;
+  --bg-raised:    #16385C;
+  --bg-raised-2:  #1C4269;
+  --border-soft:  rgba(255, 255, 255, 0.08);
+  --border-med:   rgba(255, 255, 255, 0.14);
+
+  /* Texto */
+  --text-primary:   #EFF4FA;
+  --text-secondary: #9FB4CC;
+  --text-muted:     #6E86A3;
+
+  /* Acento único */
+  --accent:       #33C2D6;
+  --accent-hover: #57D2E3;
+  --accent-ink:   #06202A;
+
+  /* Semântica de status (verde / amarelo / vermelho) */
+  --status-ok:       #33C77A;
+  --status-ok-bg:    rgba(51, 199, 122, 0.16);
+  --status-warn:       #E9B949;
+  --status-warn-bg:    rgba(233, 185, 73, 0.18);
+  --status-error:      #E5566B;
+  --status-error-bg:   rgba(229, 86, 107, 0.16);
+
+  /* Forma & movimento */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-card: 0 10px 30px rgba(4, 14, 26, 0.45);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --font-ui: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Foco visível para acessibilidade / navegação por teclado */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Scrollbar discreta (onde suportado) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-raised-2) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--bg-raised-2);
+  border-radius: 8px;
+}
+
+/* ---------- Topbar / navegação do app (substitui a sidebar fixa antiga) --------- */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  background: rgba(11, 32, 56, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.app-brand .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(51, 194, 214, 0.18);
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.app-nav a,
+.app-nav button {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s var(--ease), color 0.15s var(--ease), border-color 0.15s var(--ease);
+}
+
+.app-nav a:hover,
+.app-nav button:hover {
+  background: var(--bg-raised);
+  color: var(--text-primary);
+}
+
+.app-nav a.is-active {
+  background: var(--bg-raised-2);
+  color: var(--text-primary);
+  border-color: var(--border-med);
+}
+
+.app-logout {
+  margin-left: auto;
+}
+
+.app-logout button {
+  border: 1px solid var(--border-med);
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s var(--ease);
+}
+
+.app-logout button:hover {
+  border-color: var(--status-error);
+  color: var(--status-error);
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 24px 56px;
+}
+
+/* Menu mobile (checkbox-driven, sem JS extra) */
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-med);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text-primary);
+  position: relative;
+  transition: transform 0.2s var(--ease);
+}
+.nav-toggle-label span::before { position: absolute; top: -6px; }
+.nav-toggle-label span::after  { position: absolute; top: 6px; }
+
+@media (max-width: 760px) {
+  .app-topbar {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+  .nav-toggle-label {
+    display: flex;
+  }
+  .app-nav {
+    order: 3;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    max-height: 0;
+    overflow: hidden;
+    gap: 4px;
+    transition: max-height 0.25s var(--ease);
+  }
+  .app-nav a,
+  .app-nav button {
+    width: 100%;
+    text-align: left;
+  }
+  .nav-toggle:checked ~ .app-nav {
+    max-height: 400px;
+  }
+  .app-logout {
+    margin-left: 0;
+    order: 2;
+  }
+  .app-main {
+    padding: 20px 16px 40px;
+  }
+}
+
+/* ---------- Botões de uso geral ---------- */
+
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 11px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.08s var(--ease), background 0.15s var(--ease), border-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-accent {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-accent:hover {
+  background: var(--accent-hover);
+}
+.btn-ghost {
+  background: transparent;
+  border-color: var(--border-med);
+  color: var(--text-primary);
+}
+.btn-ghost:hover {
+  background: var(--bg-raised);
+}
+.btn-danger {
+  background: transparent;
+  border-color: var(--status-error);
+  color: var(--status-error);
+}
+.btn-danger:hover {
+  background: var(--status-error-bg);
+}
+.btn-block {
+  width: 100%;
+}
+
+/* ---------- Badge de status reutilizável (verde / amarelo / vermelho) ---------- */
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.status-dot.is-ok    { background: var(--status-ok); box-shadow: 0 0 0 3px var(--status-ok-bg); }
+.status-dot.is-warn  { background: var(--status-warn); box-shadow: 0 0 0 3px var(--status-warn-bg); }
+.status-dot.is-error { background: var(--status-error); box-shadow: 0 0 0 3px var(--status-error-bg); }
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px 4px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.status-pill.is-ok    { color: var(--status-ok);    background: var(--status-ok-bg); }
+.status-pill.is-warn  { color: var(--status-warn);  background: var(--status-warn-bg); }
+.status-pill.is-error { color: var(--status-error); background: var(--status-error-bg); }
+
+/* ---------- Estado vazio genérico (reutilizado em várias telas) ---------- */
+.empty-state {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 40px 0;
+}

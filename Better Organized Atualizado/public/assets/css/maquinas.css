@@ -1,0 +1,226 @@
+/* ---------- Tela de máquinas: lista + formulário de peças ---------- */
+
+.maquinas-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.maquinas-head h1 {
+    font-size: 22px;
+    margin: 0 0 4px;
+}
+
+.maquinas-head p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 13.5px;
+}
+
+.maquinas-table-wrap {
+    background: var(--bg-raised);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 8px 18px;
+    box-shadow: var(--shadow-card);
+    overflow-x: auto;
+    margin-bottom: 26px;
+}
+
+.maquinas-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+
+.maquinas-table th {
+    text-align: left;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.maquinas-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: middle;
+}
+
+.maquinas-table tr:last-child td {
+    border-bottom: none;
+}
+
+.maquinas-table .row-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.maquinas-table .row-actions form {
+    margin: 0;
+}
+
+/* ---------- Formulário de peças (mais largo que o de ocorrência) ---------- */
+
+.maquina-form-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.form-section {
+    margin-bottom: 22px;
+}
+
+.form-section h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.form-section .field-row {
+    grid-template-columns: 1fr 1fr;
+}
+
+.form-section .field-row-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+}
+
+.field-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.field-check input {
+    width: auto;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 40px 0;
+}
+
+@media (max-width: 640px) {
+    .form-section .field-row,
+    .form-section .field-row-3 {
+        grid-template-columns: 1fr;
+    }
+}
+/* ---------- Refinamento visual / IDs ---------- */
+.maquinas-head { padding: 22px 24px; background: linear-gradient(135deg, var(--bg-raised), var(--bg-raised-2)); border: 1px solid var(--border-soft); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
+.maquinas-head h1 { font-size: clamp(22px, 3vw, 30px); letter-spacing: -0.035em; }
+.maquinas-head p { margin-top: 8px; }
+.maquinas-table-wrap { padding: 10px 20px; }
+.maquinas-table tbody tr { transition: background .18s ease, transform .18s ease; }
+.maquinas-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.maquinas-table th:first-child, .maquinas-table td:first-child { width: 80px; }
+.machine-id { display: inline-flex; align-items: center; justify-content: center; min-width: 48px; padding: 5px 9px; border-radius: 999px; color: var(--accent); background: color-mix(in srgb, var(--accent) 13%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); font-weight: 800; font-size: 12px; }
+.machine-id-banner { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; padding: 13px 16px; border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--border-soft)); border-radius: var(--radius-md); background: linear-gradient(100deg, color-mix(in srgb, var(--accent) 12%, var(--bg-raised)), var(--bg-raised)); }
+.machine-id-banner strong { color: var(--text-primary); font-size: 14px; }
+.machine-id-banner span, .field-hint { color: var(--text-muted); font-size: 12px; }
+.maquina-form-wrap .report-card { padding: clamp(20px, 4vw, 32px); }
+.maquina-form-wrap input:not([type]), .maquina-form-wrap input[type="text"], .maquina-form-wrap input[type="number"], .maquina-form-wrap select, .maquina-form-wrap textarea { background: color-mix(in srgb, var(--bg-raised-2) 92%, var(--accent)); }
+@media (max-width: 640px) { .machine-id-banner { align-items: flex-start; flex-direction: column; gap: 4px; } }
+
+/* ---------- Correções de espaçamento e alinhamento ---------- */
+.maquinas-head, .maquinas-table-wrap, .maquina-form-wrap { min-width: 0; }
+.maquinas-head { gap: 20px; }
+.maquinas-head > div:first-child { min-width: 0; }
+.maquinas-head .lab-switch { flex: 0 0 auto; }
+.maquinas-table-wrap { width: 100%; overflow-x: auto; }
+.maquinas-table { min-width: 560px; table-layout: fixed; }
+.maquinas-table th:nth-child(1), .maquinas-table td:nth-child(1) { width: 76px; }
+.maquinas-table th:nth-child(2), .maquinas-table td:nth-child(2) { width: 150px; }
+.maquinas-table th:nth-child(3), .maquinas-table td:nth-child(3) { width: 190px; }
+.maquinas-table th:last-child, .maquinas-table td:last-child { width: 190px; }
+.maquinas-table td { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.maquinas-table .row-actions { flex-wrap: wrap; align-items: center; }
+.maquina-form-wrap { width: 100%; }
+.maquina-form-wrap .report-card { overflow: hidden; }
+.maquina-form-wrap .field-row, .maquina-form-wrap .field-row-3 { min-width: 0; }
+.maquina-form-wrap .field { min-width: 0; }
+.maquina-form-wrap .field > label { line-height: 1.35; }
+.maquina-form-wrap input, .maquina-form-wrap select, .maquina-form-wrap textarea { max-width: 100%; min-width: 0; }
+.field-full { grid-column: 1 / -1; }
+.auto-baia-note { display: flex; flex-direction: column; gap: 5px; min-height: 48px; justify-content: center; padding: 11px 13px; border: 1px dashed color-mix(in srgb, var(--accent) 45%, var(--border-soft)); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--accent) 7%, var(--bg-raised-2)); }
+.auto-baia-note strong { color: var(--accent); font-size: 13px; }
+.auto-baia-note span { color: var(--text-muted); font-size: 12px; }
+@media (max-width: 640px) { .maquinas-head { align-items: stretch; } .maquinas-head .lab-switch { width: 100%; } .maquinas-head .lab-switch select { flex: 1; } .maquinas-table { min-width: 500px; } }
+
+/* ---------- Espaçamento final e responsividade ---------- */
+.app-main { min-width: 0; }
+.lab-switch { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.lab-switch label { display: inline-flex; align-items: center; min-height: 42px; line-height: 1.3; white-space: nowrap; }
+.lab-switch select { min-height: 42px; }
+.panel-layout.has-sidebar { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); gap: 32px; align-items: start; }
+.panel-layout.has-sidebar .machine-list { min-width: 0; padding: 28px; }
+.panel-layout.has-sidebar .panel-sidebar { min-width: 0; padding: 22px; }
+.machine-list-head { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-bottom: 28px; }
+.machine-list-head h2 { margin: 0; line-height: 1.3; }
+.machine-list-note { color: var(--text-muted); font-size: 12px; }
+.machine-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) 38px repeat(4, minmax(0, 1fr)); gap: 22px 14px; padding: 24px 8px 32px; }
+.machine-card { min-width: 0; min-height: 112px; padding: 16px 10px; gap: 9px; transform: none; }
+.machine-card:nth-child(5) { grid-column: 6; }
+.machine-card:nth-child(6) { grid-column: 7; }
+.machine-card:nth-child(7) { grid-column: 8; }
+.machine-card:nth-child(8) { grid-column: 9; }
+.machine-card .machine-name, .machine-card .machine-baia { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.occurrence-list { gap: 14px; margin-top: 18px; }
+.occurrence-item { width: 100%; min-width: 0; }
+.occurrence-item button, .occurrence-item a { min-height: 82px; padding: 14px 16px; gap: 9px; }
+.occurrence-title { min-width: 0; width: 100%; }
+.occurrence-title strong { line-height: 1.35; }
+.occurrence-meta { line-height: 1.45; }
+/* Tela retangular sem inclinação no bloco de máquinas; só a superfície é inclinada. */
+.machine-list::before, .lab-board::before { width: min(520px, 82%); height: 40px; margin: 0 auto 32px; transform: perspective(800px) rotateX(-8deg); }
+.lab-board { padding: 28px; }
+.lab-board h2 { margin-bottom: 24px; }
+.lab-board .seats { padding-top: 24px; padding-bottom: 34px; }
+/* Cadastro de máquinas: o seletor não fica colado ao rótulo. */
+.maquinas-head .lab-switch { display: flex; align-items: center; gap: 12px; min-height: 42px; margin: 0; padding: 4px 0; }
+.maquinas-head .lab-switch label { margin: 0; padding: 0; }
+.maquina-form-wrap .form-section { margin-bottom: 32px; }
+.maquina-form-wrap .field-row { gap: 20px; }
+.maquina-form-wrap .field-row-3 { gap: 20px; }
+.maquina-form-wrap .field { margin-bottom: 20px; }
+.maquina-form-wrap .form-section h3 { margin-bottom: 18px; }
+.maquina-form-wrap .form-actions { margin-top: 30px; }
+@media (max-width: 1000px) {
+    .panel-layout.has-sidebar { grid-template-columns: minmax(0, 1fr) minmax(230px, 280px); gap: 22px; }
+    .machine-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) 24px repeat(4, minmax(0, 1fr)); gap: 16px 9px; }
+}
+@media (max-width: 820px) {
+    .panel-layout.has-sidebar { grid-template-columns: 1fr; gap: 22px; }
+    .panel-layout.has-sidebar .panel-sidebar { order: 2; }
+    .panel-layout.has-sidebar .machine-list { order: 1; }
+    .machine-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .machine-card:nth-child(n) { grid-column: auto; }
+}
+@media (max-width: 560px) {
+    .lab-switch { align-items: stretch; flex-direction: column; gap: 9px; }
+    .lab-switch label { min-height: auto; }
+    .lab-switch select, .lab-switch .btn { width: 100%; }
+    .panel-layout.has-sidebar .machine-list, .panel-layout.has-sidebar .panel-sidebar, .lab-board { padding: 18px; }
+    .machine-list::before, .lab-board::before { width: 94%; height: 34px; margin-bottom: 26px; }
+    .machine-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding-inline: 0; }
+    .machine-card { min-height: 96px; }
+    .maquinas-head { padding: 18px; }
+    .maquinas-head .lab-switch { width: 100%; align-items: stretch; flex-direction: column; gap: 8px; }
+    .maquinas-head .lab-switch select { width: 100%; }
+}

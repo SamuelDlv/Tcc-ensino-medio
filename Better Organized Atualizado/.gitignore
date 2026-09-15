@@ -1,0 +1,28 @@
+# Segredos e configuração local
+.env
+.env.*
+!.env.example
+
+# Sistema operacional e IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs, dumps e artefatos locais
+*.log
+*.sql.gz
+*.dump
+*.bak
+*.swp
+
+# Dependências e cache
+vendor/
+node_modules/
+.phpunit.result.cache
+
+# Banco local e arquivos temporários
+*.sqlite
+*.sqlite3
+runtime/
+tmp/

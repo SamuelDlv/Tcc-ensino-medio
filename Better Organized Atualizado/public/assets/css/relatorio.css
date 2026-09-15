@@ -1,0 +1,138 @@
+.form-wrap {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.form-wrap h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 22px;
+}
+
+.report-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 26px;
+    box-shadow: var(--shadow-card);
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    background: var(--bg-raised-2);
+    border: 1px solid var(--border-soft);
+    color: var(--text-primary);
+    padding: 11px 13px;
+    border-radius: var(--radius-sm);
+    font: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s var(--ease);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.status-choice {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.status-choice input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.status-choice label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-raised-2);
+    border: 1px solid var(--border-soft);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.status-choice input[type="radio"]:checked + label {
+    border-color: var(--border-med);
+    color: var(--text-primary);
+}
+
+.status-choice input#status-defeito:checked + label { border-color: var(--status-error); }
+.status-choice input#status-manutencao:checked + label { border-color: var(--status-warn); }
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.back-link:hover {
+    color: var(--text-primary);
+}
+
+@media (max-width: 520px) {
+    .field-row {
+        grid-template-columns: 1fr;
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+}
+
+/* O campo de título não declara type; o seletor explícito garante o mesmo tratamento visual. */
+input:not([type]), #titulo { width: 100%; background: var(--bg-raised-2); border: 1px solid var(--border-soft); color: var(--text-primary); padding: 11px 13px; border-radius: var(--radius-sm); font: inherit; font-size: 14px; transition: border-color .15s var(--ease), box-shadow .15s var(--ease); }
+input:not([type]):focus, #titulo:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 16%, transparent); }
+.required-mark { color: var(--status-error); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; margin-left: 5px; }

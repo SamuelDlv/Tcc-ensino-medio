@@ -1,0 +1,140 @@
+.report-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.report-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.report-header h1 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px;
+}
+
+.report-sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.report-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-raised);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.report-table th,
+.report-table td {
+    text-align: left;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.report-table th {
+    background: var(--bg-raised-2);
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.report-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 700px) {
+    .report-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+@media print {
+    .report-table {
+        border: 1px solid #ccc;
+        background: #fff;
+    }
+    .report-table th {
+        background: #eee;
+        color: #333;
+    }
+    .report-table td {
+        color: #111;
+        border-bottom: 1px solid #ddd;
+    }
+    .report-header h1,
+    .report-sub {
+        color: #111;
+    }
+}
+
+/* ---------- Acabamento final da sala e dos cards ---------- */
+/* O painel de máquinas fica plano; apenas a tela mantém uma perspectiva sutil. */
+.lab-board,
+.machine-list { perspective: none; }
+.lab-board .seats { perspective: none; grid-template-columns: repeat(4, minmax(54px, 1fr)) 30px repeat(4, minmax(54px, 1fr)); gap: 16px 12px; padding: 24px 8%; align-items: center; }
+.lab-board .seat { transform: none; min-width: 0; }
+.lab-board .seat:hover { transform: translateY(-4px) scale(1.03); }
+/* corredor central entre os dois blocos de quatro PCs */
+.lab-board .seat:nth-child(5) { grid-column: 6; }
+.lab-board .seat:nth-child(6) { grid-column: 7; }
+.lab-board .seat:nth-child(7) { grid-column: 8; }
+.lab-board .seat:nth-child(8) { grid-column: 9; }
+/* A grade dinâmica do suporte usa a mesma lógica: quatro lugares, corredor, quatro. */
+.machine-grid { grid-template-columns: repeat(4, minmax(110px, 1fr)) 30px repeat(4, minmax(110px, 1fr)); gap: 16px 12px; padding: 12px 4% 28px; perspective: none; }
+.machine-grid::before { display: none; }
+.machine-card { transform: none; min-width: 0; }
+.machine-card:hover { transform: translateY(-4px) scale(1.02); }
+.machine-card:nth-child(5) { grid-column: 6; }
+.machine-card:nth-child(6) { grid-column: 7; }
+.machine-card:nth-child(7) { grid-column: 8; }
+.machine-card:nth-child(8) { grid-column: 9; }
+/* Ocorrências com hierarquia clara: título em cima, contexto embaixo. */
+.panel-sidebar { padding: 18px; }
+.occurrence-list { gap: 10px; }
+.occurrence-item { margin: 0; }
+.occurrence-item form { width: 100%; }
+.occurrence-item button,
+.occurrence-item a { display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: 7px; min-height: 72px; padding: 12px 14px; text-align: left; }
+.occurrence-title { display: flex; align-items: center; gap: 9px; min-width: 0; }
+.occurrence-title strong { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.occurrence-meta { display: block; padding-left: 23px; color: var(--text-muted); font-size: 11.5px; line-height: 1.35; white-space: normal; }
+.occurrence-item button small, .occurrence-item a small { margin: 0; }
+/* O cabeçalho do relatório respira antes da tabela. */
+.report-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 26px; padding: 4px 0 2px; }
+.report-head h1 { margin: 0; }
+.report-head .btn { margin: 6px 0 6px 12px; flex-shrink: 0; }
+@media (max-width: 1050px) {
+    .machine-grid { grid-template-columns: repeat(4, minmax(80px, 1fr)) 22px repeat(4, minmax(80px, 1fr)); }
+}
+@media (max-width: 760px) {
+    .lab-board .seats { grid-template-columns: repeat(4, minmax(44px, 1fr)); padding-inline: 4%; }
+    .lab-board .seat:nth-child(n), .machine-card:nth-child(n) { grid-column: auto; }
+    .machine-grid { grid-template-columns: repeat(4, minmax(56px, 1fr)); gap: 10px; padding-inline: 2%; }
+    .machine-card { min-height: 82px; padding: 10px 6px; }
+    .report-head { align-items: stretch; }
+    .report-head .btn { margin: 0; width: 100%; }
+}
+@media (max-width: 460px) {
+    .lab-board .seats { grid-template-columns: repeat(2, minmax(52px, 1fr)); gap: 12px; }
+    .machine-grid { grid-template-columns: repeat(2, minmax(100px, 1fr)); }
+}

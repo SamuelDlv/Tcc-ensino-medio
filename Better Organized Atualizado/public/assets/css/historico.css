@@ -1,0 +1,98 @@
+.hist-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hist-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.hist-filters label {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.hist-filters select {
+    background: var(--bg-raised);
+    border: 1px solid var(--border-med);
+    color: var(--text-primary);
+    font-size: 14px;
+    padding: 9px 14px;
+    border-radius: var(--radius-sm);
+    appearance: none;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.hist-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-raised);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.hist-table th,
+.hist-table td {
+    text-align: left;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: top;
+}
+
+.hist-table th {
+    background: var(--bg-raised-2);
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.hist-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.hist-table .hist-when {
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.hist-table .hist-user {
+    color: var(--text-secondary);
+}
+
+.hist-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px 4px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.hist-action.is-created {
+    color: var(--status-warn);
+    background: var(--status-warn-bg);
+}
+
+.hist-action.is-resolved {
+    color: var(--status-ok);
+    background: var(--status-ok-bg);
+}
+
+@media (max-width: 760px) {
+    .hist-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
