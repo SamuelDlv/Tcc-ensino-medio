@@ -1,28 +1,37 @@
-# Better Organized
+# Better Organized — Versão Original
 
 Sistema web acadêmico desenvolvido como Trabalho de Conclusão de Curso do ensino médio em 2023. O projeto organiza ocorrências de equipamentos em laboratórios, permitindo registrar problemas, identificar a baia afetada e indicar se o equipamento está com defeito ou em manutenção.
 
+> **Sobre este diretório:** esta é a versão original do projeto e faz parte do repositório [`Tcc-ensino-medio`](https://github.com/SamuelDlv/Tcc-ensino-medio). Ela não é um repositório Git independente. Para obter o projeto, clone o repositório principal e entre nesta pasta.
+
+```bash
+git clone https://github.com/SamuelDlv/Tcc-ensino-medio.git
+cd "Tcc-ensino-medio/BetterOrganizerd Antigo"
+```
+
 ## Estado do projeto
 
-Esta versão foi preparada para publicação no GitHub. A aplicação continua sendo PHP procedural com MySQL/MariaDB e não exige framework ou gerenciador de dependências. A organização foi separada em `app/`, `database/` e `docs/` para facilitar manutenção e instalação.
+Esta versão foi preservada como registro do projeto desenvolvido em 2023. A aplicação continua sendo PHP procedural com MySQL/MariaDB e não exige framework ou gerenciador de dependências.
 
 ## Requisitos
 
 - PHP 7.4 ou superior, com as extensões `mysqli` e `session` habilitadas;
 - MySQL 8 ou MariaDB 10.4 ou superior;
 - Um servidor web local, como Apache, Nginx ou o servidor embutido do PHP;
-- Git, caso o projeto seja clonado do GitHub.
+- Git, caso o projeto seja obtido por clone do repositório principal.
 
 ## Instalação rápida
 
-Clone o repositório e entre nele:
+### 1. Obter o projeto
 
 ```bash
-git clone https://github.com/SEU-USUARIO/better-organized.git
-cd better-organized
+git clone https://github.com/SamuelDlv/Tcc-ensino-medio.git
+cd "Tcc-ensino-medio/BetterOrganizerd Antigo"
 ```
 
-Copie o modelo de configuração e edite a senha do seu MySQL:
+### 2. Configurar o ambiente
+
+Copie o modelo de configuração e edite os valores necessários:
 
 ```bash
 cp .env.example .env
@@ -40,7 +49,7 @@ export DB_PASSWORD='sua_senha_local'
 
 No Windows, configure as mesmas variáveis no ambiente do sistema ou no painel do servidor web.
 
-## Criar o banco de dados
+### 3. Criar o banco de dados
 
 O script `database/schema.sql` recria o banco inteiro. Ele contém `DROP DATABASE IF EXISTS`, portanto **apaga os dados atuais do banco `better_organized`**. Execute-o apenas quando essa perda for desejada.
 
@@ -57,9 +66,9 @@ Pelo terminal:
 mysql -h 127.0.0.1 -P 3306 -u root -p < database/schema.sql
 ```
 
-## Executar localmente
+### 4. Executar localmente
 
-A partir da raiz do repositório, inicie o servidor embutido do PHP apontando para `app/`:
+A partir desta pasta, inicie o servidor embutido do PHP apontando para `app/`:
 
 ```bash
 php -S 127.0.0.1:8000 -t app
@@ -76,15 +85,15 @@ O cadastro está disponível na tela inicial. O ID do usuário é gerado automat
 ## Estrutura
 
 ```text
-.
+BetterOrganizerd Antigo/
 ├── app/
-│   ├── config/              # Conexão segura e centralizada
+│   ├── config/              # Conexão centralizada
 │   ├── LoginCadastro/       # Estilos e scripts da autenticação
 │   ├── RotaProfessor/       # Fluxo do professor
 │   ├── RotaSuporte/         # Fluxo do suporte
 │   └── index.php            # Login e cadastro
 ├── database/
-│   └── schema.sql           # Estrutura destrutiva do banco
+│   └── schema.sql           # Estrutura do banco
 ├── docs/
 │   ├── ARCHITECTURE.md      # Decisões de organização
 │   └── SECURITY.md          # Limitações e recomendações de segurança
@@ -107,33 +116,19 @@ A tabela `Ocorrencias.status_ocorrencia` usa os seguintes valores:
 
 Na tela de detalhes de uma ocorrência, o botão vermelho **Gerar PDF** abre um PDF com o título, data, laboratório, baia, situação e descrição do registro. A geração é feita pelo endpoint `app/RotaSuporte/Laboratorio1/Detalhes/gerar_pdf.php`, que usa uma consulta preparada e exige uma sessão autenticada. O recurso não depende de Dompdf, mPDF, TCPDF ou FPDF.
 
-## Publicar no GitHub
-
-Antes do primeiro commit, confirme que não há senhas ou dumps locais:
-
-```bash
-git init
-git add .
-git diff --cached --check
-git grep -n -I -i -E 'password|senha|api[_-]?key|token|mysqli_connect|45\.152\.44\.154|Grupo04' || true
-git commit -m "Prepara projeto para publicação"
-git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/better-organized.git
-git push -u origin main
-```
-
-Substitua `SEU-USUARIO` pelo seu usuário real. Se alguma credencial antiga já tiver sido publicada em outro repositório, troque-a no provedor correspondente; remover o texto de um novo commit não invalida um segredo já exposto no histórico.
-
 ## Limitações conhecidas
 
-O sistema original foi criado como projeto acadêmico e mantém uma arquitetura procedural. A documentação registra o comportamento atual sem prometer recursos que não existem. Recomenda-se fazer a migração de senhas, adicionar proteção CSRF e separar autenticação, regras de negócio e apresentação antes de usar a aplicação fora de um ambiente de estudo.
+O sistema original foi criado como projeto acadêmico e mantém uma arquitetura procedural. Esta versão é preservada principalmente como registro histórico do TCC. Recomenda-se fazer a migração de senhas, adicionar proteção CSRF e separar autenticação, regras de negócio e apresentação antes de usar a aplicação fora de um ambiente de estudo.
+
+## Relação com a versão atualizada
+
+A versão atualizada do BetterOrganized está em `../Better Organized Atualizado/`. As duas versões permanecem neste mesmo repositório para preservar a evolução do projeto.
 
 ## Licença
 
-Defina uma licença antes de publicar o repositório. Para um TCC, MIT costuma ser uma opção simples, mas a decisão deve refletir a intenção dos autores.
+Este repositório não define uma licença por padrão. Antes de permitir reutilização pública, escolha uma licença adequada ao trabalho acadêmico e ao uso pretendido.
 
 ## Referências
 
 [1]: https://www.php.net/manual/en/features.commandline.webserver.php "PHP Built-in Web Server"
 [2]: https://dev.mysql.com/doc/refman/8.0/en/mysql.html "MySQL Client"
-[3]: https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository "GitHub Documentation: Adding a File to a Repository"
