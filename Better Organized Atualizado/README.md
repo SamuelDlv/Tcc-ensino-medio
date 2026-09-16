@@ -4,7 +4,7 @@ Esta é a versão atualizada do **BetterOrganized**, projeto que desenvolvi a pa
 
 O sistema permite acompanhar máquinas, baias, componentes de hardware, ocorrências técnicas e histórico de atendimento, com perfis diferentes para Professor e Suporte.
 
-> Esta pasta faz parte do repositório [`Tcc-ensino-medio`](https://github.com/SamuelDlv/Tcc-ensino-medio) e não é um repositório Git separado.
+> Esta pasta faz parte do repositório `Tcc-ensino-medio` e não é um repositório Git separado.
 
 ## O que mudou nesta versão
 
@@ -52,6 +52,12 @@ php -S 127.0.0.1:8000 -t public
 ```
 
 Acesse `http://127.0.0.1:8000`.
+
+## Configuração
+
+As configurações locais e credenciais devem ser mantidas fora do código. Use `.env.example` como modelo para criar o `.env` do ambiente local.
+
+A pasta `config/` concentra a conexão com o banco, regras compartilhadas e geração interna de PDF. Consulte o README dessa pasta quando precisar entender essas partes da aplicação.
 
 ## Estrutura
 
