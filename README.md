@@ -1,14 +1,37 @@
 # TCC — Better Organized
 
-Projeto desenvolvido em 2023 como Trabalho de Conclusão de Curso durante o ensino médio.
+Projeto que desenvolvi em 2023 como Trabalho de Conclusão de Curso durante o ensino médio.
 
-O **Better Organized** é um sistema desenvolvido para a escola em que estudávamos, com o objetivo de auxiliar no acompanhamento dos computadores e equipamentos dos laboratórios. O sistema permite consultar as máquinas, identificar suas baias e acompanhar seus status, incluindo funcionamento, defeitos e manutenção, além do registro de ocorrências.
+O **Better Organized** nasceu para resolver um problema bem específico da escola: acompanhar os computadores e equipamentos dos laboratórios. O sistema permite consultar as máquinas, localizar cada uma pela baia e registrar situações como funcionamento, defeitos e manutenção.
 
 ## Versões
 
-Este repositório reúne duas versões do projeto:
+Este repositório guarda as duas versões que desenvolvi do projeto:
 
-- `BetterOrganizerd Antigo/` — versão original desenvolvida em 2023.
-- `Better Organized Atualizado/` — versão posteriormente revisada e atualizada.
+- `BetterOrganizerd Antigo/` — versão original, desenvolvida em 2023.
+- `Better Organized Atualizado/` — versão revisada posteriormente.
 
-As duas versões são mantidas para preservar o histórico e a evolução do projeto.
+Mantive as duas porque elas mostram a evolução do projeto e permitem comparar a implementação original com a versão atualizada.
+
+## Sobre o projeto
+
+O sistema foi desenvolvido como trabalho acadêmico e, por isso, algumas escolhas refletem as limitações e o nível técnico da época. A versão original utiliza PHP procedural com MySQL/MariaDB. A versão atualizada reorganiza parte da aplicação e mantém o foco no gerenciamento dos laboratórios.
+
+## Estrutura
+
+```text
+Tcc-ensino-medio/
+├── BetterOrganizerd Antigo/
+├── Better Organized Atualizado/
+└── README.md
+```
+
+Cada versão possui seu próprio README com as instruções e detalhes técnicos correspondentes.
+
+## Autor
+
+Projeto desenvolvido por **SamuelDlv** como TCC do ensino médio em 2023.
+
+GitHub: https://github.com/SamuelDlv
+
+Este repositório foi mantido para preservar o projeto original e registrar sua evolução.
